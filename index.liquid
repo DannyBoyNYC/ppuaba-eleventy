@@ -1,0 +1,22 @@
+---
+layout: layout.liquid
+title: Hello
+---
+
+<h1>{{ title }}</h1>
+
+<ul>
+  <li>Pagination set to posts</li>
+  <li>page in collections.page</li>
+  <li>for article in contentful</li>
+</ul>
+
+<section>
+  {% for article in contentful %}
+  <article>
+    <a href="#">{{ article.title }}</a>
+    <!-- <p class="content">{{ article.body }}</p>
+    <p class="date">{{ article.date | date : "%Y-%m-%d" }}</p> -->
+  </article>
+  {% endfor %}
+</section>

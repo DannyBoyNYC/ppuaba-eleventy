@@ -28,6 +28,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("imageProcessing", imageProcessing);
   eleventyConfig.addShortcode("marked", marked);
 
+  eleventyConfig.addShortcode("storyBlock", function (storyBlock) {
+    return `
+      <section id="story">
+          <header id="${storyBlock.fields.sectionLink}">
+              <div class="inner">
+                  <h2>${storyBlock.fields.sectionTitle}</h2>
+                  ${documentToHtmlString(storyBlock.fields.content)}
+              </div>
+          </header>
+      </section>`;
+  });
+
   // eleventyConfig.addShortcode("bannerBlock", function(bannerBlock) {
   //     return `
   //                 <section id="wrapper">

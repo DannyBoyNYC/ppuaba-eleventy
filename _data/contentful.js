@@ -13,12 +13,13 @@ module.exports = function () {
     .getEntries({ order: "sys.updatedAt" })
     .then((response) => {
       const page = response.items.map((page) => {
-        // some are undefined!!!!!
-        // console.log("PAGEFIELDSBODY", typeof page.fields.body);
+        // some are undefined
+        // console.log("PAGEFIELDSBODY", page.fields.body);
         page.fields.date = new Date(page.sys.updatedAt);
         page.fields.body = page.fields.body && marked.parse(page.fields.body);
         return page.fields;
       });
+      // console.log("PAGE", page);
       return page;
     })
     .catch(console.error);
