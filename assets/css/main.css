@@ -6,3 +6,17 @@ body {
 img {
   max-width: 100%;
 }
+section {
+  width: 100%;
+}
+section ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section li {
+  flex: 0 0 32%;
+}
