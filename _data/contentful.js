@@ -14,12 +14,15 @@ module.exports = function () {
     .then((response) => {
       const page = response.items.map((page) => {
         // some are undefined
-        // console.log("PAGEFIELDSBODY", page.fields.body);
+        // console.log("PAGEFIELDSBODY: ", page.fields.body);
         page.fields.date = new Date(page.sys.updatedAt);
         page.fields.body = page.fields.body && marked.parse(page.fields.body);
+        // console.log("heroImage: ", page?.fields?.heroImage?.fields?.file?.url);
+        // some are undefined
+        page.fields.imageUrl = page?.fields?.heroImage?.fields?.file?.url;
         return page.fields;
       });
-      // console.log("PAGE", page);
+
       return page;
     })
     .catch(console.error);

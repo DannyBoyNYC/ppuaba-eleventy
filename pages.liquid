@@ -7,7 +7,6 @@ pagination:
 permalink: "pages/{{ page.slug | slug }}/"
 tags: "page"
 layout: pages.liquid
-
 eleventyComputed:
   title: "{{ page.title}}"
 ---
@@ -16,6 +15,13 @@ eleventyComputed:
   {{ page.title }}
 </h1>
 
-<time>{{ page.date }}</time>
+<time>{{ page.date | date : "%Y-%m-%d" }}</time>
+
+<img
+  class="u-max-full-width"
+  src="{{ page.imageUrl }}"
+  alt="{{ page.title }}"
+  loading="lazy"
+/>
 
 {{ page.body }}

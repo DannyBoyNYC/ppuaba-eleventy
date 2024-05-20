@@ -2,11 +2,15 @@ require("dotenv").config();
 const marked = require("marked");
 const contentful = require("contentful");
 const client = contentful.createClient({
-  // This is the space ID. A space is like a project folder in Contentful terms
+  // A space is like a project folder in Contentful terms
   space: process.env.CONTENTFUL_SPACE_ID,
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  // The access token for this space. Normally you get both ID and the token in the Contentful web app
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN_DELIVERY,
 });
+
+const asset = client
+  .getAsset("8Ou4Gl5U3cDO0T4BLYCEQ")
+  .then((asset) => console.log("TEST:: ", asset.fields.file.url));
 
 // const {
 //     documentToHtmlString
@@ -22,21 +26,22 @@ function imageProcessing(photo) {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("images");
-
+  // eleventyConfig.addPassthroughCopy("images");
   // eleventyConfig.addShortcode('documentToHtmlString', documentToHtmlString);
   eleventyConfig.addShortcode("imageProcessing", imageProcessing);
   eleventyConfig.addShortcode("marked", marked);
 
-  eleventyConfig.addShortcode("storyBlock", function (storyBlock) {
+  eleventyConfig.addShortcode("page", function (page) {
     return `
       <section id="story">
-          <header id="${storyBlock.fields.sectionLink}">
-              <div class="inner">
-                  <h2>${storyBlock.fields.sectionTitle}</h2>
-                  ${documentToHtmlString(storyBlock.fields.content)}
-              </div>
-          </header>
+      <h1>
+        {{ page.title }}
+      </h1>
+      <img src="{{ page.imageUrl }}" alt="{{ page.title }}" />
+      <div class="inner">
+        <time>{{ page.date | date : "%Y-%m-%d" }}</time>
+        {{ page.body }}
+      </div>
       </section>`;
   });
 

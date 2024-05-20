@@ -1,22 +1,22 @@
 ---
 layout: layout.liquid
-title: Hello
 ---
 
-<h1>{{ title }}</h1>
-
-<ul>
-  <li>Pagination set to posts</li>
-  <li>page in collections.page</li>
-  <li>for article in contentful</li>
-</ul>
-
 <section>
-  {% for article in contentful %}
+  <!-- prettier-ignore -->
+  {% assign post_by_order = contentful | sort: "ordering" %} 
+  {% for post in post_by_order %}
+  {% if post.ordering > 0 %}
   <article>
-    <a href="#">{{ article.title }}</a>
-    <!-- <p class="content">{{ article.body }}</p>
-    <p class="date">{{ article.date | date : "%Y-%m-%d" }}</p> -->
+    <p>
+      <a href="pages/{{ post.slug | url }}">{{ post.title }}</a>
+      | <span class="date">{{ post.date | date : "%Y-%m-%d" }}</span>
+    </p>
+    <!-- <script>
+      console.log("Hello from index.liquid", "{{post.ordering}}");
+    </script> -->
   </article>
+  <!-- prettier-ignore -->
+  {% endif %} 
   {% endfor %}
 </section>

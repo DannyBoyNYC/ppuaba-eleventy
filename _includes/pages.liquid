@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ title }}</title>
-    <meta
-      name="description"
-      content="11ty Contentful Starter utilizing the HTML5UP Solid State Theme"
-    />
-    <meta name="author" content="Contentful" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-  </head>
+  {% include 'partials/head.html' %} {% include 'partials/header.html' %}
+  <!-- posts page template -->
   <body class="is-preload">
     <div id="page-wrapper">
       {{ content }}
