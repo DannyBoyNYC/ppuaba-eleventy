@@ -8,7 +8,10 @@
     "build-dev": "npx eleventy",
     "watch": "npx eleventy --watch",
     "serve": "npx eleventy --serve",
-    "debug": "DEBUG=* npx eleventy"
+    "debug": "DEBUG=* npx eleventy",
+    "rimraf": "rimraf _site",
+    "sass": "sass scss/styles.scss assets/css/main.css --watch",
+    "start": "npm-run-all -p rimraf serve sass"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +19,15 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "common-tags": "^1.8.2",
-    "contentful": "^10.6.5",
-    "dotenv": "^16.3.1",
-    "eslint": "^8.52.0",
-    "marked": "^9.1.4"
+    "contentful": "^10.12.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.5.0",
+    "marked": "^13.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.7",
+    "sass": "^1.77.5"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^4.0.2"
   }
 }

@@ -2,26 +2,29 @@
 layout: layout.liquid
 ---
 
-<section>
+<section class="section">
   <ul>
     <!-- prettier-ignore -->
     {% assign post_by_order = contentful | sort: "ordering" %} 
-  {% for post in post_by_order %}
-  {% if post.ordering > 0 %}
+    {% for post in post_by_order %}
+    {% if post.ordering > 0 %}
 
     <li>
-      <img
-        class=""
-        width="240"
-        src="{{ post.imageUrl }}"
-        alt="{{ post.title }}"
-        loading="lazy"
-      />
-      <h2>
-        <a href="pages/{{ post.slug | url }}">{{ post.title }}</a>
-      </h2>
-      <h3 class="date">Publish date {{ post.date | date : "%b %d, %Y" }}</h3>
+      <a href="pages/{{ post.slug | url }}">
+        <img
+          class=""
+          width="240"
+          src="{{ post.imageUrl }}"
+          alt="{{ post.title }}"
+          loading="lazy"
+        />
+        <h2>
+          {{ post.title }}
+        </h2>
+        <h3 class="date">Publish date {{ post.date | date : "%b %d, %Y" }}</h3>
+      </a>
     </li>
+
     <!-- <script>
       console.log("Hello from index.liquid", "{{post.ordering}}");
     </script> -->
