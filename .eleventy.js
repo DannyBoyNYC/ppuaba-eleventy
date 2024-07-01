@@ -16,6 +16,13 @@ const asset = client
 //     documentToHtmlString
 // } = require('@contentful/rich-text-html-renderer');
 
+let options = {
+  weekday: "short",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+};
+
 function imageProcessing(photo) {
   return `<img class='u-max-full-width'
             srcset="https:${photo.fields.file.url}?w=480&fm=webp&q=80&fit=fill&f=faces 480w,
@@ -30,6 +37,17 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addShortcode('documentToHtmlString', documentToHtmlString);
   eleventyConfig.addShortcode("imageProcessing", imageProcessing);
   eleventyConfig.addShortcode("marked", marked);
+
+  eleventyConfig.addShortcode(
+    "headers",
+    (title, date, imageUrl) => `
+      <img width="290" loading="lazy" src="${imageUrl}" alt="${title}" />
+      <h2>${title}</h2>
+      <h3 class="date">Published ${new Intl.DateTimeFormat(
+        "en-US",
+        options
+      ).format(date)}</h3>`
+  );
 
   eleventyConfig.addShortcode("page", function (page) {
     return `
