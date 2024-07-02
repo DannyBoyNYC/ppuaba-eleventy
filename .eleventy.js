@@ -23,12 +23,12 @@ let options = {
   day: "numeric",
 };
 
-function imageProcessing(photo) {
+function imageProcessing(imageUrl, title) {
   return `<img class='u-max-full-width'
-            srcset="https:${photo.fields.file.url}?w=480&fm=webp&q=80&fit=fill&f=faces 480w,
-            https:${photo.fields.file.url}?w=800&fm=webp&q=80&fit=fill&f=faces 800w" sizes="(max-width: 600px) 480px,800px"
-            src="https:${photo.fields.file.url}?w=480&fit=fill&f=faces"
-            alt="${photo.fields.title}" loading="lazy">`;
+            srcset="https:${imageUrl}?w=480&fm=webp&q=80&fit=fill&f=faces 480w,
+            https:${imageUrl}?w=800&fm=webp&q=80&fit=fill&f=faces 800w" sizes="(max-width: 600px) 480px,800px"
+            src="https:${imageUrl}?w=480&fit=fill&f=faces"
+            alt="${title}" loading="lazy">`;
 }
 
 module.exports = function (eleventyConfig) {
@@ -39,9 +39,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("marked", marked);
 
   eleventyConfig.addShortcode(
-    "headers",
+    "Card",
     (title, date, imageUrl) => `
-      <img width="290" loading="lazy" src="${imageUrl}" alt="${title}" />
+      ${imageProcessing(imageUrl, title)}
       <h2>${title}</h2>
       <h3 class="date">Published ${new Intl.DateTimeFormat(
         "en-US",
