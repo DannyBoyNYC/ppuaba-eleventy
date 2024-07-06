@@ -17,8 +17,10 @@ module.exports = function () {
         page.fields.body = page.fields.body && marked.parse(page.fields.body);
         // some images are undefined
         page.fields.imageUrl = page.fields.heroImage?.fields?.file?.url;
+        // page.fields.updatedAt = sys.updatedAt;
         return page.fields;
       });
+      console.log("FIELDS", page.fields);
       return page;
     })
     .catch(console.error);

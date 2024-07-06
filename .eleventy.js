@@ -8,6 +8,8 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN_DELIVERY,
 });
 
+const Card = require("./_includes/components/Card");
+
 const asset = client
   .getAsset("8Ou4Gl5U3cDO0T4BLYCEQ")
   .then((asset) => console.log("TEST:: ", asset.fields.file.url));
@@ -16,39 +18,14 @@ const asset = client
 //     documentToHtmlString
 // } = require('@contentful/rich-text-html-renderer');
 
-let options = {
-  weekday: "short",
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-};
-
-function imageProcessing(imageUrl, title) {
-  return `<img class='u-max-full-width'
-            srcset="https:${imageUrl}?w=480&fm=webp&q=80&fit=fill&f=faces 480w,
-            https:${imageUrl}?w=800&fm=webp&q=80&fit=fill&f=faces 800w" sizes="(max-width: 600px) 480px,800px"
-            src="https:${imageUrl}?w=480&fit=fill&f=faces"
-            alt="${title}" loading="lazy">`;
-}
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   // eleventyConfig.addPassthroughCopy("images");
   // eleventyConfig.addShortcode('documentToHtmlString', documentToHtmlString);
-  eleventyConfig.addShortcode("imageProcessing", imageProcessing);
+  // eleventyConfig.addShortcode("imageProcessing", imageProcessing);
   eleventyConfig.addShortcode("marked", marked);
 
-  eleventyConfig.addShortcode(
-    "Card",
-    (title, date, imageUrl) => `
-      ${imageProcessing(imageUrl, title)}
-      <h2>${title}</h2>
-      <h3 class="date">Published ${new Intl.DateTimeFormat(
-        "en-US",
-        options
-      ).format(date)}</h3>`
-  );
-
+  eleventyConfig.addShortcode("Card", Card);
   eleventyConfig.addShortcode("page", function (page) {
     return `
       <section id="story">
