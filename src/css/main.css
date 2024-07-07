@@ -161,5 +161,19 @@ section li {
   width: 100%;
   z-index: 1;
 }
+.page__header .page__header__image img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.page__body .date {
+  margin: 0px auto 2em;
+  max-width: 650px;
+}
+.page__body p {
+  line-height: 1.6;
+  margin: 0px 0px 2em;
+}
 
 /*# sourceMappingURL=main.css.map */
