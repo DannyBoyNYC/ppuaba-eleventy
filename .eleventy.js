@@ -9,36 +9,38 @@ const client = contentful.createClient({
 });
 
 const Card = require("./_includes/components/Card");
+const Page = require("./_includes/components/Page");
 
-const asset = client
-  .getAsset("8Ou4Gl5U3cDO0T4BLYCEQ")
-  .then((asset) => console.log("TEST:: ", asset.fields.file.url));
+// const asset = client
+//   .getAsset("8Ou4Gl5U3cDO0T4BLYCEQ")
+//   .then((asset) => console.log("TEST:: ", asset.fields.file.url));
 
 // const {
 //     documentToHtmlString
 // } = require('@contentful/rich-text-html-renderer');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("src/assets");
   // eleventyConfig.addPassthroughCopy("images");
   // eleventyConfig.addShortcode('documentToHtmlString', documentToHtmlString);
   // eleventyConfig.addShortcode("imageProcessing", imageProcessing);
   eleventyConfig.addShortcode("marked", marked);
 
   eleventyConfig.addShortcode("Card", Card);
-  eleventyConfig.addShortcode("page", function (page) {
-    return `
-      <section id="story">
-      <h1>
-        {{ page.title }}
-      </h1>
-      <img src="{{ page.imageUrl }}" alt="{{ page.title }}" />
-      <div class="inner">
-        <time>{{ page.date | date : "%Y-%m-%d" }}</time>
-        {{ page.body }}
-      </div>
-      </section>`;
-  });
+  eleventyConfig.addShortcode("Page", Page);
+  // eleventyConfig.addShortcode("page", function (page) {
+  //   return `
+  //     <section id="story">
+  //     <h1>
+  //       {{ page.title }}
+  //     </h1>
+  //     <img src="{{ page.imageUrl }}" alt="{{ page.title }}" />
+  //     <div class="inner">
+  //       <time>{{ page.date | date : "%Y-%m-%d" }}</time>
+  //       {{ page.body }}
+  //     </div>
+  //     </section>`;
+  // });
 
   // eleventyConfig.addShortcode("bannerBlock", function(bannerBlock) {
   //     return `
