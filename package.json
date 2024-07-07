@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx eleventy --pathprefix=11ty-contentful-starter",
-    "build-dev": "npx eleventy",
+    "build": "npx eleventy",
     "watch": "npx eleventy --watch",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
     "rimraf": "rimraf _site",
-    "sass": "sass src/scss/styles.scss src/assets/css/main.css --watch",
+    "sass": "sass src/scss/styles.scss src/css/main.css --watch",
     "start": "npm-run-all -p rimraf serve sass"
   },
   "keywords": [],
