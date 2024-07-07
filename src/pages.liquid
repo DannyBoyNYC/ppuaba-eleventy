@@ -11,6 +11,4 @@ eleventyComputed:
   title: "{{ page.title}}"
 ---
 
-<section class="section">
-  {% Page page.title page.date page.imageUrl page.body %}
-</section>
+{% Page page.title page.date page.imageUrl page.body %}
