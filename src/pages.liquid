@@ -1,0 +1,16 @@
+---
+pagination:
+  data: contentful
+  size: 1
+  alias: page
+  addAllPagesToCollections: true
+permalink: "pages/{{ page.slug | slug }}/"
+tags: "page"
+layout: layout.liquid
+eleventyComputed:
+  title: "{{ page.title}}"
+---
+
+<section class="section">
+  {% Page page.title page.date page.imageUrl page.body %}
+</section>

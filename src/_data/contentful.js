@@ -19,24 +19,8 @@ module.exports = function () {
         page.fields.imageUrl = page.fields.heroImage?.fields?.file?.url;
         return page.fields;
       });
+      // console.log("FIELDS", page.fields);
       return page;
     })
     .catch(console.error);
 };
-
-// module.exports = function () {
-//   return client
-//     .getEntries({ content_type: "page", order: "sys.updatedAt" })
-//     .then((response) => {
-//       const about = response.items.map((about) => {
-//         about.fields.date = new Date(about.sys.updatedAt);
-//         about.fields.body =
-//           about.fields.body && marked.parse(about.fields.body);
-//         // some images are undefined
-//         about.fields.imageUrl = about.fields.heroImage?.fields?.file?.url;
-//         return about.fields;
-//       });
-//       return about;
-//     })
-//     .catch(console.error);
-// };

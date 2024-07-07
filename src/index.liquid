@@ -1,0 +1,22 @@
+---
+layout: layout.liquid
+---
+
+<section class="section">
+  <ul>
+    <!-- prettier-ignore -->
+    {% assign post_by_order = contentful | sort: "ordering" %} 
+    {% for post in post_by_order %}
+    {% if post.ordering > 0 %}
+
+    <li>
+      <a href="pages/{{ post.slug | url }}">
+        {% Card post.title post.date post.imageUrl %}
+      </a>
+    </li>
+
+    <!-- prettier-ignore -->
+    {% endif %} 
+  {% endfor %}
+  </ul>
+</section>
