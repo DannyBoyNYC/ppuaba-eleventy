@@ -1,4 +1,8 @@
-# 11ty-contentful-starter
+# PPUABA Eleventy Project
+
+- formatting branch
+
+## 11ty-contentful-starter
 
 Repo:
 https://github.com/DannyBoyNYC/ppuaba-eleventy
@@ -8,8 +12,6 @@ Access tokens from:
 https://app.contentful.com/spaces/6t9k66liklgs/api/keys/48Jv6NBIqtQGjdq2BT2XWB
 
 An example site made using [Contentful](https://www.contentful.com/) and [11ty](https://www.11ty.dev/). It's automatically deployed via GitHub Actions and then hosted by GitHub Pages. Data lives in Contentful, code lives with GitHub, and that's all the services you need to deploy and host a static site.
-
-![Screenshot of Front Page](images/front_page.png)
 
 # What is this about?
 
