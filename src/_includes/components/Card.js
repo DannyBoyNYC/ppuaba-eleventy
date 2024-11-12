@@ -8,11 +8,12 @@ let options = {
 };
 
 Card = (title, date, imageUrl) => `
-      ${imageProcessing(imageUrl, title)}
-      <h2>${title}</h2>
-      <h3 class="date">Updated: ${new Intl.DateTimeFormat(
-        "en-US",
-        options
-      ).format(date)}</h3>`;
+  <div class="image-container">
+    ${imageProcessing(imageUrl, title)}
+  </div>
+  <h2>${title}</h2>
+  <h3 class="date">Updated: ${new Intl.DateTimeFormat("en-US", options).format(
+    date
+  )}</h3>`;
 
 module.exports = Card;

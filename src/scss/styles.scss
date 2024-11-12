@@ -125,6 +125,9 @@ section ul li:first-child {
 
 section li {
   flex: 0 0 32%;
+  &:hover {
+    background: var(--theme-ui-colors-tertiary);
+  }
 }
 
 /* === */
