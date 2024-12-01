@@ -1,5 +1,7 @@
-const contentful = require("contentful");
-const marked = require("marked");
+// const contentful = require("contentful");
+import * as contentful from "contentful";
+// const marked = require("marked");
+import { marked } from "marked";
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -8,7 +10,7 @@ const client = contentful.createClient({
   host: "cdn.contentful.com",
 });
 
-module.exports = function () {
+export default function () {
   return client
     .getEntries({ content_type: "post", order: "sys.updatedAt" })
     .then((response) => {
@@ -23,4 +25,4 @@ module.exports = function () {
       return page;
     })
     .catch(console.error);
-};
+}

@@ -6,4 +6,5 @@ function imageProcessing(imageUrl, title) {
             alt="${title}" loading="lazy">`;
 }
 
-module.exports = imageProcessing;
+// module.exports = imageProcessing;
+export default imageProcessing;

@@ -1,4 +1,5 @@
-const imageProcessing = require("./ImageProcessing");
+// const imageProcessing = require("./ImageProcessing");
+import imageProcessing from "./ImageProcessing.js";
 
 let options = {
   weekday: "short",
@@ -7,7 +8,7 @@ let options = {
   day: "numeric",
 };
 
-Card = (title, date, imageUrl) => `
+const Card = (title, date, imageUrl) => `
   <div class="image-container">
     ${imageProcessing(imageUrl, title)}
   </div>
@@ -16,4 +17,5 @@ Card = (title, date, imageUrl) => `
     date
   )}</h3>`;
 
-module.exports = Card;
+// module.exports = Card;
+export default Card;
