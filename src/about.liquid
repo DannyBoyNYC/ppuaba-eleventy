@@ -1,0 +1,12 @@
+---
+data: about
+size: 1
+alias: about
+permalink: "about/"
+tags: "about"
+layout: layout.liquid
+eleventyComputed:
+  title: "{{ about.title}} PPUABA"
+---
+
+{% Page about.title about.date about.body %}

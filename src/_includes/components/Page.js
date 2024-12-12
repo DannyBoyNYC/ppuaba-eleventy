@@ -1,5 +1,4 @@
-// const imageProcessing = require("./ImageProcessing");
-import imageProcessing from "./ImageProcessing.js";
+// import imageProcessing from "./ImageProcessing.js";
 
 let options = {
   weekday: "short",
@@ -27,5 +26,4 @@ const Page = (title, date, imageUrl, body) => `
      
   </section>`;
 
-// module.exports = Page;
 export default Page;

@@ -1,6 +1,4 @@
-// const contentful = require("contentful");
 import * as contentful from "contentful";
-// const marked = require("marked");
 import { marked } from "marked";
 
 const client = contentful.createClient({
