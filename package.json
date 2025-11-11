@@ -10,7 +10,7 @@
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
     "rimraf": "rimraf _site",
-    "sass": "sass src/scss/styles.scss src/css/main.css --watch",
+    "sass": "sass src/scss/index.scss src/css/main.css --watch",
     "start": "npm-run-all -p rimraf serve sass"
   },
   "keywords": [],

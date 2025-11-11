@@ -2,16 +2,16 @@
 layout: layout.liquid
 ---
 
-<section class="section">
+<section class="home__section">
   <ul>
     <!-- prettier-ignore -->
     {% assign post_by_order = contentful | sort: "ordering" %} 
     {% for post in post_by_order %}
-    {% if post.ordering > 0 %}
+      {% if post.ordering > 0 %}
 
     <li>
       <a href="pages/{{ post.slug | url }}">
-        {% Card post.title post.date post.imageUrl %}
+        {% Card post.title post.date post.imageUrl post.body %}
       </a>
     </li>
 

@@ -19,7 +19,6 @@ export default function () {
         page.fields.imageUrl = page.fields.heroImage?.fields?.file?.url;
         return page.fields;
       });
-      // console.log("FIELDS", page.fields);
       return page;
     })
     .catch(console.error);

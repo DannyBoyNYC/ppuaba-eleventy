@@ -30,7 +30,6 @@ img {
   display: block;
   max-width: 100%;
   object-fit: cover;
-  aspect-ratio: 2/1;
 }
 
 .navbar {
@@ -39,6 +38,7 @@ img {
   padding: 1.5em 0px;
   position: sticky;
   top: 0;
+  z-index: 4;
 }
 .navbar nav {
   width: 100%;
@@ -66,7 +66,7 @@ img {
   margin: 0px;
   flex-basis: 100%;
 }
-@media (min-width: 268px) {
+@media (width > 320px) {
   .navbar nav ul li:first-of-type {
     color: red !important;
   }
@@ -84,16 +84,12 @@ section {
   width: 100%;
   max-width: 1050px;
   padding: 1.5em 1.5em 2em;
-  -webkit-box-flex: 1;
 }
-
 section ul {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0px auto;
+  gap: 1rem;
 }
 section ul a {
   display: flex;
@@ -102,99 +98,63 @@ section ul a {
   width: 100%;
   color: var(--theme-ui-colors-text);
   text-decoration: none;
+  border: 1px solid var(--theme-ui-colors-secondary);
+}
+section ul a:hover {
+  background: var(--theme-ui-colors-tertiary);
 }
 section ul a h2 {
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 600;
   text-transform: capitalize;
   margin: 1rem 1rem 0.5rem;
 }
-section ul a h3 {
+section ul a time.date {
   margin: 0px 1rem 0.5rem;
   color: gray;
+  font-size: 0.75rem;
+  font-weight: normal;
+  display: block;
 }
-
+section ul a p {
+  margin: 0px 1rem 1rem;
+  line-height: 1.6;
+}
+section ul li {
+  flex: 0 0 100%;
+}
+@media (min-width: 560px) and (max-width: 799px) {
+  section ul li {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+}
+@media (min-width: 800px) {
+  section ul li {
+    flex: 0 0 calc(33.333% - 0.67rem);
+  }
+}
 section ul li:first-child {
   flex: 0 0 100%;
-  position: relative;
-  border: 1px solid var(--theme-ui-colors-secondary);
 }
-
-section li {
-  flex: 0 0 32%;
+section ul li:first-child .image-container {
+  height: 300px;
+  overflow: hidden;
 }
-section li:hover {
-  background: var(--theme-ui-colors-tertiary);
+section ul li:first-child .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-
-.contact h1 {
-  font-size: 3em;
-  text-transform: capitalize;
-  font-weight: 600;
-  text-align: center;
-  margin: 0px 0px 3rem;
-  line-height: 1.2;
+section ul li:not(:first-child) .image-container {
+  height: 200px;
+  overflow: hidden;
 }
-.contact input,
-.contact textarea {
-  font-family: inherit;
-  font-size: inherit;
-  background: var(--theme-ui-colors-tertiary);
-  color: var(--theme-ui-colors-text) #121212;
-  border-radius: 2px;
-  padding: 1em;
-  width: 90%;
-  border: none;
-  appearance: none;
-  margin: 0.5rem;
-}
-.contact textarea {
-  line-height: 1.6;
-  min-height: 250px;
-  resize: vertical;
-}
-.contact input[type=submit] {
-  cursor: pointer;
-  transition: 0.2s;
-  background: var(--theme-ui-colors-text);
-  color: white;
-}
-.contact .popover {
-  background: white;
-  padding: 2em;
-  border-radius: 2px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0px auto;
-  z-index: 99;
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  transition: 0.2s;
-  opacity: 1;
-  visibility: visible;
-  max-width: 400px;
-}
-.contact .popover p {
-  line-height: 1.6;
-  margin: 0px 0px 2em;
-}
-.contact .popover .popover-okay {
-  background: var(--theme-ui-colors-text);
-  font-size: 1em;
-  display: inline-block;
-  margin: 0px auto;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: white;
-  padding: 1em;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: 0.2s;
-  z-index: 99;
+section ul li:not(:first-child) .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* === */
@@ -211,20 +171,17 @@ section li:hover {
 }
 
 .page__header {
-  height: 50vh;
+  display: flex;
+  width: 100vw;
+  height: 500px;
   padding: 0;
   position: relative;
-  min-height: 300px;
 }
 .page__header h1 {
   z-index: 2;
-  font-size: 3em;
-  text-transform: capitalize;
   font-weight: 600;
   position: absolute;
-  width: 100%;
   max-width: 650px;
-  padding: 0px 1rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -232,9 +189,11 @@ section li:hover {
   color: white;
 }
 .page__header .page__header__image {
-  position: absolute;
   width: 100%;
-  height: 80%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 .page__header .page__header__image::before {
   content: "";
@@ -251,9 +210,12 @@ section li:hover {
   width: 100%;
 }
 
-.page__body .date {
-  margin: 0px auto 2em;
-  max-width: 650px;
+.page__body time.date {
+  margin-bottom: 1rem;
+  color: gray;
+  font-size: 0.75rem;
+  font-weight: normal;
+  display: block;
 }
 .page__body p {
   line-height: 1.6;
