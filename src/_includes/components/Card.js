@@ -12,8 +12,11 @@ const Card = (title, date, imageUrl, description) => {
   // Function to truncate text to specified word count
   const truncateText = (text, wordLimit) => {
     if (!text) return "";
-    // Replace HTML tags with spaces to preserve word boundaries
-    const plainText = text.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
+    // Remove HTML comments and replace HTML tags with spaces to preserve word boundaries
+    const plainText = text
+      .replace(/<!--[\s\S]*?-->/g, " ") // Remove HTML comments
+      .replace(/<[^>]*>/g, " ") // Replace HTML tags with spaces
+      .replace(/\s+/g, " "); // Normalize whitespace
     const words = plainText.trim().split(/\s+/);
     if (words.length <= wordLimit) return plainText;
     return words.slice(0, wordLimit).join(" ") + "...";

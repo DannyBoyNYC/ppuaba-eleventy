@@ -15,7 +15,7 @@ const Page = (title, date, imageUrl, body) => `
     </div>
 
   </section>
-  <section class="page__body">
+  <section class="article-body">
       <time class="date" datetime="${date.toISOString()}">Updated: ${new Intl.DateTimeFormat(
   "en-US",
   options
