@@ -1,0 +1,130 @@
+// Contact form styles
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #007acc;
+      box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+    }
+
+    &::placeholder {
+      color: #666;
+      opacity: 1;
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  input[type="submit"] {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    max-width: 200px;
+
+    &:hover {
+      background-color: #005999;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Hide honeypot field
+  p[hidden] {
+    display: none !important;
+  }
+
+  // Success message popover
+  .popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+
+    &.show {
+      display: block;
+    }
+
+    p {
+      margin: 0 0 1.5rem 0;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .popover-okay {
+      background-color: #28a745;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #218838;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      max-width: 100%;
+    }
+
+    input[type="submit"] {
+      max-width: 100%;
+    }
+  }
+}

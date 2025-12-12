@@ -295,4 +295,119 @@ img {
   object-position: center;
 }
 
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.contact h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+}
+.contact input[type=text],
+.contact input[type=email],
+.contact textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact input[type=text]:focus,
+.contact input[type=email]:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+}
+.contact input[type=text]::placeholder,
+.contact input[type=email]::placeholder,
+.contact textarea::placeholder {
+  color: #666;
+  opacity: 1;
+}
+.contact textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.contact input[type=submit] {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  max-width: 200px;
+}
+.contact input[type=submit]:hover {
+  background-color: #005999;
+  transform: translateY(-2px);
+}
+.contact input[type=submit]:active {
+  transform: translateY(0);
+}
+.contact p[hidden] {
+  display: none !important;
+}
+.contact .popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  text-align: center;
+  display: none;
+  z-index: 1000;
+}
+.contact .popover.show {
+  display: block;
+}
+.contact .popover p {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+.contact .popover .popover-okay {
+  background-color: #28a745;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+.contact .popover .popover-okay:hover {
+  background-color: #218838;
+}
+@media (max-width: 768px) {
+  .contact {
+    padding: 1rem;
+  }
+  .contact input[type=text],
+  .contact input[type=email],
+  .contact textarea {
+    max-width: 100%;
+  }
+  .contact input[type=submit] {
+    max-width: 100%;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
