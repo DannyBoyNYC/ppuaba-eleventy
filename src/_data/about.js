@@ -18,6 +18,7 @@ export default function () {
           about.fields.body && marked.parse(about.fields.body);
         return about.fields;
       });
+      console.log("responses", response);
       console.log("ABOUT", about);
       return about[0];
     })
