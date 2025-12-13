@@ -228,12 +228,6 @@ img {
   max-width: 1050px;
   padding: 1.5em 1.5em 2em;
 }
-.article-body ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
 .article-body ul a {
   transition: 0.2s;
   color: var(--theme-ui-colors-text);
