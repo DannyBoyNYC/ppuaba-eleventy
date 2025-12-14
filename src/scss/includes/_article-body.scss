@@ -3,10 +3,29 @@
 .article-body {
   margin: 0px auto auto;
   width: 100%;
-  max-width: 1050px;
+  max-width: 650px;
   padding: 1.5em 1.5em 2em;
 
+  p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  time.date {
+    margin-bottom: 1rem;
+    font-weight: normal;
+    display: block;
+  }
+
   ul {
+    line-height: 1.25;
+    margin-bottom: 2rem;
     // list-style: none;
     // display: flex;
     // flex-wrap: wrap;
@@ -22,17 +41,6 @@
         font-weight: 600;
         text-transform: capitalize;
         margin: 1rem 1rem 0.5rem;
-      }
-      time.date {
-        margin: 0px 1rem 0.5rem;
-        color: gray;
-        font-size: 0.75rem;
-        font-weight: normal;
-        display: block;
-      }
-      p {
-        margin: 0px 1rem 1rem;
-        line-height: 1.6;
       }
     }
 

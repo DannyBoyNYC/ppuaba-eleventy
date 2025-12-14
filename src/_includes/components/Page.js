@@ -16,7 +16,7 @@ const Page = (title, date, imageUrl, body) => `
 
   </section>
   <section class="article-body">
-      <time class="date" datetime="${date.toISOString()}">Updated: ${new Intl.DateTimeFormat(
+      <time class="date" datetime="${date.toISOString()}">Updated ${new Intl.DateTimeFormat(
   "en-US",
   options
 ).format(date)}</time>

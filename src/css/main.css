@@ -8,6 +8,11 @@
   --theme-ui-colors-highlight: #553e37;
   --theme-ui-colors-ppuaba: #402f29;
   --test: #ff0000;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
 }
 
 html {
@@ -157,7 +162,6 @@ img {
   object-position: center;
 }
 
-/* === */
 .site-root {
   height: 100vh;
   display: flex;
@@ -210,23 +214,29 @@ img {
   width: 100%;
 }
 
-.article-body time.date {
-  margin-bottom: 1rem;
-  color: gray;
-  font-size: 0.75rem;
-  font-weight: normal;
-  display: block;
-}
-.article-body p {
-  line-height: 1.6;
-  margin: 0px 0px 2em;
-}
-
 .article-body {
   margin: 0px auto auto;
   width: 100%;
-  max-width: 1050px;
+  max-width: 650px;
   padding: 1.5em 1.5em 2em;
+}
+.article-body p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+.article-body h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.article-body time.date {
+  margin-bottom: 1rem;
+  font-weight: normal;
+  display: block;
+}
+.article-body ul {
+  line-height: 1.25;
+  margin-bottom: 2rem;
 }
 .article-body ul a {
   transition: 0.2s;
@@ -240,17 +250,6 @@ img {
   font-weight: 600;
   text-transform: capitalize;
   margin: 1rem 1rem 0.5rem;
-}
-.article-body ul a time.date {
-  margin: 0px 1rem 0.5rem;
-  color: gray;
-  font-size: 0.75rem;
-  font-weight: normal;
-  display: block;
-}
-.article-body ul a p {
-  margin: 0px 1rem 1rem;
-  line-height: 1.6;
 }
 .article-body ul li {
   flex: 0 0 100%;
