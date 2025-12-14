@@ -9,4 +9,11 @@ eleventyComputed:
   title: "{{ about.title}} PPUABA"
 ---
 
-{% Page about.title about.date about.body %}
+<section class="section">
+
+  <div class="article-body">
+    <h1 style="text-align: center; margin-bottom: 2rem;">{{ about.title }}</h1>
+    {{ about.body  }}
+</section>
+
+<!-- {% Page about.title about.date about.body %} -->
