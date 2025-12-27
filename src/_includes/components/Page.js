@@ -7,16 +7,17 @@ let options = {
   day: "numeric",
 };
 
-const Page = (title, date, imageUrl, body) => `
+const Page = (title, date, imageUrl, body, caption) => `
   <section class="page__header">
     <div class="page__header__image">
       <img src="${imageUrl}" alt="${title}" />
+      ${caption ? `<div class="caption"><p>${caption}</p></div>` : ""}
             <h1>${title}</h1>
     </div>
 
   </section>
   <section class="article-body">
-      <time class="date" datetime="${date.toISOString()}">Updated ${new Intl.DateTimeFormat(
+      <time class="date" datetime="${date.toISOString()}">Published ${new Intl.DateTimeFormat(
   "en-US",
   options
 ).format(date)}</time>

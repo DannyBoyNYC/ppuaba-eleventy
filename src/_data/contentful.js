@@ -10,13 +10,16 @@ const client = contentful.createClient({
 
 export default function () {
   return client
-    .getEntries({ content_type: "post", order: "sys.updatedAt" })
+    .getEntries({ content_type: "post", order: "sys.createdAt" })
     .then((response) => {
       const page = response.items.map((page) => {
-        page.fields.date = new Date(page.sys.updatedAt);
+        page.fields.date = new Date(page.sys.createdAt);
+        // page.fields.temp = page.fields?.publishedAt;
         page.fields.body = page.fields.body && marked.parse(page.fields.body);
         // some images are undefined
         page.fields.imageUrl = page.fields.heroImage?.fields?.file?.url;
+        // caption field might be undefined
+        page.fields.caption = page.fields.caption || "";
         return page.fields;
       });
       return page;

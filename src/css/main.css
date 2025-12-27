@@ -23,6 +23,7 @@ html {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 100%;
+  line-height: 150%;
 }
 
 * {
@@ -35,6 +36,15 @@ img {
   display: block;
   max-width: 100%;
   object-fit: cover;
+}
+
+a {
+  color: inherit;
+}
+
+li {
+  line-height: 140%;
+  margin-bottom: 0.25rem;
 }
 
 .navbar {
@@ -64,7 +74,10 @@ img {
   color: darkgray;
   font-weight: 600;
   transition: all 0.2s ease 0s;
-  border-bottom: 2px solid #121212;
+}
+.navbar nav ul li a:hover {
+  color: white;
+  border-bottom: 2px solid white;
 }
 .navbar nav ul li:first-of-type {
   position: relative;
@@ -81,7 +94,6 @@ img {
   text-decoration: none;
   font-weight: 600;
   transition: all 0.2s ease 0s;
-  border-bottom: 2px solid var(--theme-ui-colors-text);
 }
 
 .home__section {
@@ -213,16 +225,23 @@ img {
   height: 100%;
   width: 100%;
 }
+.page__header .caption {
+  font-size: 0.875rem;
+  padding: 1rem;
+  margin: 0px auto 2em;
+  max-width: 650px;
+  text-align: right;
+}
 
 .article-body {
   margin: 0px auto auto;
   width: 100%;
   max-width: 650px;
-  padding: 1.5em 1.5em 2em;
+  padding: 3em 1.5em 2em;
 }
 .article-body p {
   font-size: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .article-body h2 {
   font-size: 1.5em;
@@ -286,6 +305,12 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.about-body h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact {
