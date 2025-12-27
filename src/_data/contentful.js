@@ -13,8 +13,13 @@ export default function () {
     .getEntries({ content_type: "post", order: "sys.createdAt" })
     .then((response) => {
       const page = response.items.map((page) => {
-        page.fields.date = new Date(page.sys.createdAt);
-        // page.fields.temp = page.fields?.publishedAt;
+        page.fields.date = new Date(page.fields?.publishDate);
+        // console.log(
+        //   "page.fields.temp for",
+        //   page.fields.title,
+        //   ":",
+        //   page.fields.temp
+        // );
         page.fields.body = page.fields.body && marked.parse(page.fields.body);
         // some images are undefined
         page.fields.imageUrl = page.fields.heroImage?.fields?.file?.url;
